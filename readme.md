@@ -16,4 +16,8 @@ Di gambar dashboard RabbitMQ, poin yang paling penting itu ada di bagian Connect
 
 Nah, pas saya jalanin program Publisher, dia langsung ngirim 5 event sekaligus ke RabbitMQ. Karena si Subscriber tadi sudah standby, semua pesan itu langsung disambar dan diproses detik itu juga, makanya log pesannya muncul beruntun di terminal. Alasan kenapa angka Ready di dashboard tetap nol itu bukan karena pengirimannya gagal, tapi karena prosesnya saking cepatnya—pesan yang masuk langsung habis diambil oleh Subscriber tanpa sempat antre lama-lama di dalam broker.
 
+3.
+![spike](spike.png)
+Pas saya perhatiin grafik Message rates di dashboard RabbitMQ, kelihatan jelas ada lonjakan atau spikes tajam setiap kali saya eksekusi program publisher. Lonjakan ini sebenarnya bukti visual kalau data yang saya kirim lewat cargo run beneran masuk ke sistem secara real-time. Jadi, begitu programnya jalan dan langsung nembak 5 pesan sekaligus, grafiknya bakal naik drastis buat nunjukin kalau ada aktivitas pengiriman data yang cukup padat di detik itu.
 
+Nah, sebaliknya, kalau grafiknya turun lagi sampai menyentuh angka nol, itu tandanya program publisher saya sudah selesai tugasnya dan berhenti ngirim pesan. Lonjakan atau "gunung" di grafik itu ngebuktiin kalau message broker RabbitMQ-nya memang lagi nerima beban kerja atau traffic data dari aplikasi yang saya buat. Dengan adanya grafik ini, saya jadi bisa memantau langsung apakah pesan yang dikirim dari publisher beneran sampai ke broker atau nggak.
