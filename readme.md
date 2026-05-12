@@ -1,0 +1,5 @@
+a. Berapa banyak data yang dikirim program publisher dalam satu kali jalan?
+Dalam satu kali saya menjalankan program publisher, ada 5 buah data (atau event) yang dikirim ke RabbitMQ. Data ini isinya adalah UserCreatedEventMessage untuk lima orang yang berbeda, yaitu Amir, Budi, Cica, Dira, dan Emir. Jadi, setiap kali program publisher dieksekusi sampai selesai, dia bakal memicu lima pesan sekaligus untuk masuk ke dalam antrean.
+
+b. Apa artinya alamat URL-nya sama dengan program subscriber?
+Alamat URL yang sama itu artinya kedua program saya, baik si publisher maupun si subscriber, lagi ngobrol di "ruangan" atau alamat yang sama. Ibaratnya, publisher tahu ke mana harus naruh surat, dan subscriber tahu harus nungguin surat di kotak pos yang mana. Karena alamatnya sama-sama ke localhost:5672, mereka berdua jadi bisa terhubung ke satu message broker (RabbitMQ) yang sama yang lagi jalan di Docker saya.
