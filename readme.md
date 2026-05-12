@@ -3,3 +3,5 @@ Dalam satu kali saya menjalankan program publisher, ada 5 buah data (atau event)
 
 b. Apa artinya alamat URL-nya sama dengan program subscriber?
 Alamat URL yang sama itu artinya kedua program saya, baik si publisher maupun si subscriber, lagi ngobrol di "ruangan" atau alamat yang sama. Ibaratnya, publisher tahu ke mana harus naruh surat, dan subscriber tahu harus nungguin surat di kotak pos yang mana. Karena alamatnya sama-sama ke localhost:5672, mereka berdua jadi bisa terhubung ke satu message broker (RabbitMQ) yang sama yang lagi jalan di Docker saya.
+
+![Hasil Running Subscriber](running_rabbitMQ.png)
